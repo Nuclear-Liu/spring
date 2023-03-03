@@ -1,17 +1,19 @@
 package org.springframework.learn;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 
-public class Person implements ApplicationContextAware, EnvironmentAware {
+public class Person implements ApplicationContextAware, EnvironmentAware, BeanNameAware {
 	private String name;
 	private Integer age;
 
 	private ApplicationContext applicationContext;
 	private Environment environment;
+	private String beanName;
 
 	public String getName() {
 		return name;
@@ -49,5 +51,14 @@ public class Person implements ApplicationContextAware, EnvironmentAware {
 	@Override
 	public void setEnvironment(Environment environment) {
 		this.environment = environment;
+	}
+
+	public void show() {
+		System.out.println("beanName: " + this.beanName);
+	}
+
+	@Override
+	public void setBeanName(String name) {
+		this.beanName = name;
 	}
 }

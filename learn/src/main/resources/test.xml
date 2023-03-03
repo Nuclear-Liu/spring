@@ -8,4 +8,6 @@
 		<property name="age" value="18"/>
 		<property name="name" value="hui"/>
 	</bean>
+	<bean id="customFactoryBean" class="org.springframework.learn.factorybean.CustomFactoryBean">
+	</bean>
 </beans>
